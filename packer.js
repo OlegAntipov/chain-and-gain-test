@@ -79851,7 +79851,6 @@ var PlatformPlayDeck = class extends PlatformBase {
   }
   async init() {
     this.wrapper = window.parent;
-    this.player = await this.callMethod("getUserProfile", null, true);
     this.createEventHandler();
     this._initialized = true;
     AnLog.info("[PlayDeck SDK] \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D \u0438 \u043F\u0440\u043E\u0438\u043D\u0438\u0446\u0438\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043D");
