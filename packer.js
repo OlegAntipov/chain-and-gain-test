@@ -79850,7 +79850,8 @@ var PlatformPlayDeck = class extends PlatformBase {
     this.playButtonIsPressed = false;
   }
   async init() {
-    this.wrapper = window.parent;
+    AnLog.info(`build 001`);
+    this.wrapper = window.parent.window;
     this.createEventHandler();
     this._initialized = true;
     AnLog.info("[PlayDeck SDK] \u0443\u0441\u043F\u0435\u0448\u043D\u043E \u0437\u0430\u0433\u0440\u0443\u0436\u0435\u043D \u0438 \u043F\u0440\u043E\u0438\u043D\u0438\u0446\u0438\u0430\u043B\u0438\u0437\u0438\u0440\u043E\u0432\u0430\u043D");
@@ -79895,20 +79896,25 @@ var PlatformPlayDeck = class extends PlatformBase {
   get lastPrepareToPlayEnded() {
     return this.wrapper ? this.playButtonIsPressed : true;
   }
-  // === Пользователь ===
-  get playerName() {
-    return this.player?.username ?? "";
-  }
-  get playerLoggedIn() {
-    return true;
-  }
-  get currentLanguage() {
-    const lang = this.player?.locale ?? null;
-    if (lang === null)
-      return null;
-    if (["ru", "be", "kk", "uk", "uz"].includes(lang)) return "ru";
-    return "en";
-  }
+  // // === Пользователь ===
+  // get playerName(): string
+  // {
+  // 	return this.player?.username ?? '';
+  // };
+  // get playerLoggedIn(): boolean
+  // {
+  // 	return true;
+  // };
+  // get currentLanguage(): string | null
+  // {
+  // 	const lang = this.player?.locale ?? null;
+  // 	if (lang === null)
+  // 		return null;
+  // 	// ru для be, kk, uk, uz;
+  // 	// en для остальных языков.
+  // 	if (['ru', 'be', 'kk', 'uk', 'uz'].includes(lang)) return 'ru';
+  // 	return 'en';
+  // }
   // === Разметка событий для платформы ===
   reportEvent(event, data) {
     super.reportEvent(event);
